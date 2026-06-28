@@ -1,5 +1,5 @@
-# --- Git worktrees ---
-/.worktrees/
+# --- Git worktrees (Claude Code desktop creates these per session) ---
+/.claude/worktrees/
 
 # --- Node / Angular (frontend) ---
 node_modules/
