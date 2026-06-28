@@ -1,0 +1,32 @@
+# --- Git worktrees ---
+/.worktrees/
+
+# --- Node / Angular (frontend) ---
+node_modules/
+/frontend/dist/
+/frontend/.angular/
+/frontend/.vscode/
+npm-debug.log*
+yarn-error.log*
+
+# --- Java / Gradle (backend) ---
+/backend/.gradle/
+/backend/build/
+/backend/bin/
+/backend/out/
+
+# --- IDE ---
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Env / secrets ---
+*.env
+.env.local
+application-local.properties
+application-local.yml
