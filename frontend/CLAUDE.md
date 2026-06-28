@@ -1,5 +1,26 @@
+# frontend
 
-You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
+Angular 22 single-page app for vocabulary-ai. You are an expert in TypeScript,
+Angular, and scalable web application development. Write functional,
+maintainable, performant, and accessible code.
+
+## Stack
+
+- **Angular 22** (standalone, signals)
+- **Tailwind CSS 4** (via `@tailwindcss/postcss`)
+- **Vitest** for unit tests (`jsdom`)
+- **Prettier** for formatting
+- Package manager: **npm**
+
+## Commands
+
+Run from the `frontend/` directory.
+
+```bash
+npm start      # ng serve — dev server
+npm run build  # production build
+npm test       # vitest
+```
 
 ## TypeScript Best Practices
 
