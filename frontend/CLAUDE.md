@@ -9,18 +9,42 @@ maintainable, performant, and accessible code.
 - **Angular 22** (standalone, signals)
 - **Tailwind CSS 4** (via `@tailwindcss/postcss`)
 - **Vitest** for unit tests (`jsdom`)
+- **ESLint** (`angular-eslint` + `typescript-eslint`, type-aware) for linting
 - **Prettier** for formatting
 - Package manager: **npm**
+
+## Style Guide
+
+This repo ships a written style guide under [`../style-guide/`](../style-guide/style-guide.md)
+that targets Angular v22+. The rules below summarize the essentials; consult the
+guide for the full detail. Load the specific file for the area you are working on:
+
+- TypeScript / Angular components & services — [`style-guide.ts.md`](../style-guide/style-guide.ts.md)
+- Templates, control flow, forms — [`style-guide.html.md`](../style-guide/style-guide.html.md)
+- SCSS, design tokens, component styling — [`style-guide.scss.md`](../style-guide/style-guide.scss.md)
+- Accessibility (a11y) — [`style-guide.a11y.md`](../style-guide/style-guide.a11y.md)
+- Tests (Vitest & Playwright) — [`style-guide.spec.md`](../style-guide/style-guide.spec.md)
+- NPM packages & dependencies — [`style-guide.npm.md`](../style-guide/style-guide.npm.md)
+
+Repo-wide guides (Git commits, Markdown) live alongside them in the same folder.
 
 ## Commands
 
 Run from the `frontend/` directory.
 
 ```bash
-npm start      # ng serve — dev server
-npm run build  # production build
-npm test       # vitest
+npm start            # ng serve — dev server
+npm run build        # production build
+npm test             # vitest
+npm run lint         # eslint (ng lint)
+npm run lint:fix     # eslint with --fix
+npm run format       # prettier --write .
+npm run format:check # prettier --check .
 ```
+
+ESLint is configured in [`eslint.config.js`](eslint.config.js) and encodes the
+style-guide rules; Prettier owns formatting via [`prettier.config.js`](prettier.config.js)
+(`eslint-config-prettier` switches off conflicting ESLint rules).
 
 ## TypeScript Best Practices
 

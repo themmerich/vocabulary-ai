@@ -26,3 +26,7 @@ from its own directory using the commands documented in its `CLAUDE.md`.
 - Commit messages and code comments in English.
 - Each module owns its own toolchain and lockfiles; run module commands from the
   module directory, not the repo root.
+- A written style guide lives under [`style-guide/`](style-guide/style-guide.md).
+  Most of it is Angular/frontend-specific (see [frontend/CLAUDE.md](frontend/CLAUDE.md)),
+  but the [Git commit](style-guide/style-guide.git.md) and
+  [Markdown](style-guide/style-guide.md.md) guides apply repo-wide.
