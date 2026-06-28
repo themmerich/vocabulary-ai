@@ -1,5 +1,9 @@
-
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
+
+## Tooling
+
+- Lint with `npm run lint` (`npm run lint:fix` to autofix). ESLint is configured in `eslint.config.js` and encodes the project style guide.
+- Format with `npm run format` (`npm run format:check` to verify). Prettier owns formatting via `prettier.config.js`; ESLint defers to it.
 
 ## TypeScript Best Practices
 
