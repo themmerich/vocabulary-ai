@@ -1,0 +1,23 @@
+# Local development services for vocabulary-ai.
+# Start with: docker compose up -d
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: vocabulary-postgres
+    environment:
+      POSTGRES_DB: vocabulary
+      POSTGRES_USER: vocabulary
+      POSTGRES_PASSWORD: vocabulary
+    # Host port 5434 avoids clashing with a native PostgreSQL on 5432/5433.
+    ports:
+      - "5434:5432"
+    volumes:
+      - vocabulary-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vocabulary -d vocabulary"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  vocabulary-pgdata:
