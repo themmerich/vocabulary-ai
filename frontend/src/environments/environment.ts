@@ -1,15 +1,13 @@
-// Application environment configuration.
+// Base application environment (production default).
 //
-// `primeNgLicense` holds the PrimeUI Community license token required by
-// PrimeNG 22+. It is intentionally committed EMPTY: the token does ship in the
-// client bundle (so it is not a true secret), but this is a public repository,
-// so the personal key is kept out of version control as hygiene.
+// `primeNgLicense` is intentionally empty here. For local development this file
+// is replaced by the gitignored `environment.local.ts` via angular.json
+// `fileReplacements` (see the `development` build configuration), so your
+// personal PrimeUI Community license token stays out of version control.
 //
-// To use your key locally WITHOUT committing it:
-//   1. Paste your token into `primeNgLicense` below.
-//   2. Tell git to ignore your local edit to this file:
-//        git update-index --skip-worktree frontend/src/environments/environment.ts
-//      (Undo later with: git update-index --no-skip-worktree frontend/src/environments/environment.ts)
+// First-time local setup (once per clone):
+//   cp src/environments/environment.local.example.ts src/environments/environment.local.ts
+//   # then paste your token into environment.local.ts
 export const environment = {
   primeNgLicense: '',
 };
