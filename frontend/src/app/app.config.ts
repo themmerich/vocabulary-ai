@@ -16,6 +16,7 @@ import { routes } from './app.routes';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { authErrorInterceptor } from './core/auth/auth.interceptor';
 import { AuthService } from './core/auth/auth.service';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -34,6 +35,10 @@ export const appConfig: ApplicationConfig = {
       loader: TranslocoHttpLoader,
     }),
     providePrimeNG({
+      // PrimeUI Community license token (set locally via environment.ts).
+      // Empty here so the public repo stays key-free; without it PrimeNG 22
+      // shows an "Invalid PrimeUI License" banner but still functions.
+      license: environment.primeNgLicense || undefined,
       theme: {
         preset: Aura,
         options: {
