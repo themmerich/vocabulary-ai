@@ -1,3 +1,39 @@
 {
-  "title": "vocabulary-ai"
+  "app": {
+    "title": "vocabulary-ai"
+  },
+  "auth": {
+    "field": {
+      "email": "E-Mail",
+      "password": "Passwort"
+    },
+    "login": {
+      "title": "Anmelden",
+      "submit": "Anmelden",
+      "noAccount": "Noch kein Konto?",
+      "registerLink": "Jetzt registrieren"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "submit": "Konto erstellen",
+      "haveAccount": "Bereits ein Konto?",
+      "loginLink": "Anmelden"
+    },
+    "logout": "Abmelden",
+    "validation": {
+      "emailRequired": "E-Mail ist erforderlich",
+      "emailInvalid": "Bitte eine gültige E-Mail-Adresse eingeben",
+      "passwordRequired": "Passwort ist erforderlich",
+      "passwordMinLength": "Passwort muss mindestens 8 Zeichen lang sein"
+    },
+    "error": {
+      "invalidCredentials": "Ungültige E-Mail oder Passwort",
+      "emailTaken": "Diese E-Mail ist bereits registriert",
+      "generic": "Etwas ist schiefgelaufen. Bitte erneut versuchen."
+    }
+  },
+  "home": {
+    "welcome": "Willkommen",
+    "placeholder": "Hier erscheint dein Vokabel-Arbeitsbereich."
+  }
 }

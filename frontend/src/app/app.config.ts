@@ -1,22 +1,29 @@
 import {
   ApplicationConfig,
+  inject,
   isDevMode,
+  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { provideTransloco } from '@jsverse/transloco';
 import { providePrimeNG } from 'primeng/config';
+import { firstValueFrom } from 'rxjs';
 import Aura from '@primeuix/themes/aura';
 
 import { routes } from './app.routes';
 import { TranslocoHttpLoader } from './transloco-loader';
+import { authErrorInterceptor } from './core/auth/auth.interceptor';
+import { AuthService } from './core/auth/auth.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([authErrorInterceptor])),
+    // Restore the session (and prime the CSRF cookie) before the first route resolves.
+    provideAppInitializer(() => firstValueFrom(inject(AuthService).loadCurrentUser())),
     provideTransloco({
       config: {
         availableLangs: ['en', 'de'],
