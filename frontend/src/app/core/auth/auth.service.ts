@@ -1,7 +1,7 @@
 import { computed, inject, Service, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of, tap } from 'rxjs';
-import { AuthUser, Credentials } from './auth.models';
+import { AuthUser, Credentials, RegisterCredentials } from './auth.models';
 
 const API = '/api/auth';
 
@@ -25,7 +25,7 @@ export class AuthService {
     );
   }
 
-  register(credentials: Credentials): Observable<AuthUser> {
+  register(credentials: RegisterCredentials): Observable<AuthUser> {
     return this.http
       .post<AuthUser>(`${API}/register`, credentials)
       .pipe(tap((user) => this.currentUser.set(user)));

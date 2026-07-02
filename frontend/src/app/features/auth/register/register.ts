@@ -7,7 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { AuthService } from '../../../core/auth/auth.service';
-import { Credentials } from '../../../core/auth/auth.models';
+import { RegisterCredentials, Role } from '../../../core/auth/auth.models';
 
 const MIN_PASSWORD_LENGTH = 8;
 
@@ -51,6 +51,20 @@ const MIN_PASSWORD_LENGTH = 8;
               }
             </label>
 
+            <!-- DEV CONVENIENCE: pick a role at registration. Remove before production. -->
+            <label class="flex flex-col gap-1">
+              <span>{{ 'auth.field.role' | transloco }}</span>
+              <select
+                class="rounded-md border border-surface-300 bg-surface-0 px-3 py-2 text-surface-900"
+                [value]="model().role"
+                (change)="onRoleChange($event)"
+              >
+                <option value="USER">{{ 'auth.role.user' | transloco }}</option>
+                <option value="ADMIN">{{ 'auth.role.admin' | transloco }}</option>
+              </select>
+              <small class="text-surface-500">{{ 'auth.role.hint' | transloco }}</small>
+            </label>
+
             @if (serverError(); as serverErrorKey) {
               <p class="text-red-600" role="alert">{{ serverErrorKey | transloco }}</p>
             }
@@ -77,7 +91,7 @@ export class Register {
   private readonly auth = inject(AuthService);
   private readonly router = inject(Router);
 
-  protected readonly model = signal<Credentials>({ email: '', password: '' });
+  protected readonly model = signal<RegisterCredentials>({ email: '', password: '', role: 'USER' });
   protected readonly registerForm = form(this.model, (path) => {
     required(path.email, { message: 'auth.validation.emailRequired' });
     email(path.email, { message: 'auth.validation.emailInvalid' });
@@ -99,6 +113,11 @@ export class Register {
       (this.registerForm.password().touched() || this.submitted()) &&
       this.registerForm.password().invalid(),
   );
+
+  protected onRoleChange(event: Event): void {
+    const role = (event.target as HTMLSelectElement).value as Role;
+    this.model.update((current) => ({ ...current, role }));
+  }
 
   protected onSubmit(event: Event): void {
     event.preventDefault();
