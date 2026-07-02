@@ -108,4 +108,30 @@ class AuthFlowIntegrationTest extends AbstractIntegrationTest {
                         .content(body("erin@example.com", "short")))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void registerAsAdminGrantsAdminAccessImmediately() throws Exception {
+        MockHttpSession session = new MockHttpSession();
+
+        mockMvc.perform(post("/api/auth/register")
+                        .session(session)
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"email\":\"root@example.com\",\"password\":\"password123\",\"role\":\"ADMIN\"}"))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.role").value("ADMIN"));
+
+        // The new session already carries ADMIN authority, so the admin API is reachable.
+        mockMvc.perform(get("/api/admin/lehrwerke").session(session)).andExpect(status().isOk());
+    }
+
+    @Test
+    void registrationDefaultsToUserRole() throws Exception {
+        mockMvc.perform(post("/api/auth/register")
+                        .with(csrf())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(body("frank@example.com", "password123")))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.role").value("USER"));
+    }
 }

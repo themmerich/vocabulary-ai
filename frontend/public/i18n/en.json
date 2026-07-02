@@ -5,7 +5,13 @@
   "auth": {
     "field": {
       "email": "Email",
-      "password": "Password"
+      "password": "Password",
+      "role": "Role"
+    },
+    "role": {
+      "user": "User",
+      "admin": "Admin",
+      "hint": "Development convenience — remove before production."
     },
     "login": {
       "title": "Sign in",
@@ -35,5 +41,80 @@
   "home": {
     "welcome": "Welcome",
     "placeholder": "Your vocabulary workspace will appear here."
+  },
+  "admin": {
+    "nav": "Admin",
+    "action": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "save": "Save"
+    },
+    "validation": {
+      "required": "Required"
+    },
+    "toast": {
+      "saved": "Saved",
+      "deleted": "Deleted"
+    },
+    "error": {
+      "generic": "Something went wrong. Please try again."
+    },
+    "lehrwerke": {
+      "title": "Textbooks",
+      "new": "New textbook",
+      "edit": "Edit textbook",
+      "empty": "No textbooks yet.",
+      "field": {
+        "title": "Title",
+        "language": "Language",
+        "lessons": "Lessons"
+      },
+      "deleteHeader": "Delete textbook",
+      "deleteMessage": "Delete \"{{title}}\" and all its lessons and vocabulary?"
+    },
+    "lektionen": {
+      "title": "Lessons",
+      "new": "New lesson",
+      "edit": "Edit lesson",
+      "empty": "No lessons yet.",
+      "field": {
+        "title": "Title"
+      },
+      "deleteHeader": "Delete lesson",
+      "deleteMessage": "Delete \"{{title}}\" and all its vocabulary?"
+    },
+    "vokabeln": {
+      "title": "Vocabulary",
+      "new": "New word",
+      "edit": "Edit word",
+      "empty": "No vocabulary yet.",
+      "import": "Import",
+      "importLabel": "Entries",
+      "importHint": "One entry per line: foreign ; meaning | meaning",
+      "importSubmit": "Import",
+      "importDone": "{{count}} entries imported",
+      "importDoneSkipped": "{{count}} entries imported, {{skipped}} skipped as malformed",
+      "importNone": "No valid entries found. Use one entry per line: foreign ; meaning | meaning",
+      "meaningsHint": "One meaning per line",
+      "field": {
+        "foreign": "Foreign term",
+        "meanings": "Meanings"
+      },
+      "deleteHeader": "Delete word",
+      "deleteMessage": "Delete \"{{term}}\"?"
+    },
+    "grammatik": {
+      "title": "Grammar rules",
+      "new": "New rule",
+      "edit": "Edit rule",
+      "empty": "No grammar rules yet.",
+      "field": {
+        "title": "Title",
+        "content": "Content"
+      },
+      "deleteHeader": "Delete rule",
+      "deleteMessage": "Delete \"{{title}}\"?"
+    }
   }
 }

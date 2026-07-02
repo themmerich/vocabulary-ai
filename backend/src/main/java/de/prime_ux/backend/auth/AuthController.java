@@ -45,7 +45,7 @@ public class AuthController {
             @Valid @RequestBody RegisterRequest request,
             HttpServletRequest httpRequest,
             HttpServletResponse httpResponse) {
-        Account account = authService.register(request.email(), request.password());
+        Account account = authService.register(request.email(), request.password(), request.role());
         startSession(request.email(), request.password(), httpRequest, httpResponse);
         return UserResponse.from(account);
     }

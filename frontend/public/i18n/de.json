@@ -5,7 +5,13 @@
   "auth": {
     "field": {
       "email": "E-Mail",
-      "password": "Passwort"
+      "password": "Passwort",
+      "role": "Rolle"
+    },
+    "role": {
+      "user": "Benutzer",
+      "admin": "Admin",
+      "hint": "Nur für die Entwicklung — vor Produktion entfernen."
     },
     "login": {
       "title": "Anmelden",
@@ -35,5 +41,80 @@
   "home": {
     "welcome": "Willkommen",
     "placeholder": "Hier erscheint dein Vokabel-Arbeitsbereich."
+  },
+  "admin": {
+    "nav": "Admin",
+    "action": {
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "cancel": "Abbrechen",
+      "save": "Speichern"
+    },
+    "validation": {
+      "required": "Pflichtfeld"
+    },
+    "toast": {
+      "saved": "Gespeichert",
+      "deleted": "Gelöscht"
+    },
+    "error": {
+      "generic": "Etwas ist schiefgelaufen. Bitte erneut versuchen."
+    },
+    "lehrwerke": {
+      "title": "Lehrwerke",
+      "new": "Neues Lehrwerk",
+      "edit": "Lehrwerk bearbeiten",
+      "empty": "Noch keine Lehrwerke.",
+      "field": {
+        "title": "Titel",
+        "language": "Sprache",
+        "lessons": "Lektionen"
+      },
+      "deleteHeader": "Lehrwerk löschen",
+      "deleteMessage": "\"{{title}}\" mit allen Lektionen und Vokabeln löschen?"
+    },
+    "lektionen": {
+      "title": "Lektionen",
+      "new": "Neue Lektion",
+      "edit": "Lektion bearbeiten",
+      "empty": "Noch keine Lektionen.",
+      "field": {
+        "title": "Titel"
+      },
+      "deleteHeader": "Lektion löschen",
+      "deleteMessage": "\"{{title}}\" mit allen Vokabeln löschen?"
+    },
+    "vokabeln": {
+      "title": "Vokabeln",
+      "new": "Neue Vokabel",
+      "edit": "Vokabel bearbeiten",
+      "empty": "Noch keine Vokabeln.",
+      "import": "Import",
+      "importLabel": "Einträge",
+      "importHint": "Ein Eintrag pro Zeile: fremd ; Bedeutung | Bedeutung",
+      "importSubmit": "Importieren",
+      "importDone": "{{count}} Einträge importiert",
+      "importDoneSkipped": "{{count}} Einträge importiert, {{skipped}} als fehlerhaft übersprungen",
+      "importNone": "Keine gültigen Einträge gefunden. Ein Eintrag pro Zeile: fremd ; Bedeutung | Bedeutung",
+      "meaningsHint": "Eine Bedeutung pro Zeile",
+      "field": {
+        "foreign": "Fremdwort",
+        "meanings": "Bedeutungen"
+      },
+      "deleteHeader": "Vokabel löschen",
+      "deleteMessage": "\"{{term}}\" löschen?"
+    },
+    "grammatik": {
+      "title": "Grammatikregeln",
+      "new": "Neue Regel",
+      "edit": "Regel bearbeiten",
+      "empty": "Noch keine Grammatikregeln.",
+      "field": {
+        "title": "Titel",
+        "content": "Inhalt"
+      },
+      "deleteHeader": "Regel löschen",
+      "deleteMessage": "\"{{title}}\" löschen?"
+    }
   }
 }
